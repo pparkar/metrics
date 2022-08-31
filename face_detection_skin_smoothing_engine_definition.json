@@ -1,0 +1,49 @@
+{
+  "sensei:params": {
+    "spl:request": {
+      "description": "The spl graph request to run. In this case urn:graph:face_detection or urn:graph:skin_smoothing",
+      "sensei:schema": "https://git.corp.adobe.com/raw/neuralfiltersplatform/splcloud/main/splcloud-serialize/src/test/resources/splgraphprocessing.schema.json",
+      "sensei:type": "sensei:scalar"
+    }
+  },
+  "sensei:inputs": {
+    "input_image": {
+      "description": "Image for face detection or skin smoothing",
+      "sensei:schema": "sensei:content",
+      "sensei:type": "sensei:scalar",
+      "sensei:required": false,
+      "sensei:accepted_media_types": [
+        "image/jpeg",
+        "image/png"
+      ]
+    }
+  },
+  "sensei:outputs": {
+    "face_coordinates": {
+      "description": "Face coordinates as an spl array in json",
+      "sensei:schema": "https://git.corp.adobe.com/raw/neuralfiltersplatform/splcloud/main/splcloud-serialize/src/test/resources/splgraphprocessing.schema.json/#/definitions/spl_array_output",
+      "sensei:type": "sensei:scalar",
+      "sensei:required": false,
+      "sensei:generated_media_types": [
+        "application/vnd.adobe.nfp.spl.output.array+json",
+        "application/json"
+      ]
+    },
+    "number_of_faces": {
+      "description": "Number of faces detected",
+      "sensei:schema": "Number",
+      "sensei:type": "sensei:scalar",
+      "sensei:required": false
+    },
+    "smoothing_result_image": {
+      "description": "Image result of skin smoothing",
+      "sensei:schema": "sensei:content",
+      "sensei:type": "sensei:scalar",
+      "sensei:required": false,
+      "sensei:generated_media_types": [
+        "image/jpeg"
+      ]
+    }
+  },
+  
+}
